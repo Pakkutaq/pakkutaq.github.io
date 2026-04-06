@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marcus Lilleør Christoffersen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0f1117;
+      --surface: #1a1a2e;
+      --border:  #2a2a4a;
+      --text:    #d4d4d4;
+      --muted:   #888888;
+      --accent:  #4ea8de;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 24px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    header .kicker {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #f0f0f0;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    header p {
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px;
+      flex: 1;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #f0f0f0;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 32px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card .label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #f0f0f0;
+      margin-bottom: 10px;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <p class="kicker">DTU 02806 &nbsp;·&nbsp; Social Data Analysis &amp; Visualization</p>
+  <h1>Marcus Lilleør Christoffersen</h1>
+  <p>Data stories and interactive visualizations from the 2026 course.</p>
+</header>
+
+<main>
+  <h2>Projects</h2>
+  <a class="card" href="Assignment2_marcus/index.html">
+    <p class="label">Assignment 2 &nbsp;·&nbsp; Data Story</p>
+    <h3>A Day in San Francisco's Crime</h3>
+    <p>San Francisco has logged nearly three million crimes since 2003. But crime data records what police report, not what happens. The difference is most visible at 13:00 on a Tuesday in the Tenderloin.</p>
+  </a>
+</main>
+
+<footer>
+  DTU 02806 Social Data Analysis &amp; Visualization &nbsp;·&nbsp; 2026
+</footer>
+
+</body>
+</html>
