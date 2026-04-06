@@ -154,7 +154,7 @@
 <header class="hero">
   <p class="kicker">Data Story &nbsp;·&nbsp; San Francisco Crime 2003–2025</p>
   <h1>A Day in San Francisco's Crime</h1>
-  <p class="dek">San Francisco has logged nearly three million crimes since 2003. But crime data records what police report, not what happens. The difference is most visible at 13:00 on a Tuesday in the Tenderloin.</p>
+  <p class="dek">San Francisco has logged nearly three million crimes since 2003. But crime data records what police report, not what happens. The difference is most visible at 13:00 on a weekday afternoon in the Tenderloin.</p>
   <p class="byline">DTU 02806 Social Data Analysis &amp; Visualization &nbsp;·&nbsp; Assignment 2</p>
 </header>
 
@@ -171,7 +171,7 @@
     <strong>Assault</strong>, <strong>Motor Vehicle Theft</strong>, and
     <strong>Weapons Offense</strong>. Most follow patterns driven by human behavior.
     One of them mostly follows police shift schedules. The clearest signal comes from
-    the Tenderloin, a dense, low-income neighborhood just south of downtown that has
+    the <a href="https://en.wikipedia.org/wiki/Tenderloin,_San_Francisco" target="_blank" style="color: var(--accent);">Tenderloin</a>, a dense, low-income neighborhood just south of downtown that has
     been the focus of concentrated SFPD enforcement for decades.
   </p>
 </section>
@@ -181,8 +181,8 @@
   <div class="container">
     <h2>The Crime Clock</h2>
     <p class="lead">
-      The polar chart below shows the hourly distribution of each crime type, normalized to its
-      own peak. A spike at the outer ring means that hour is the busiest for that offense.
+      Five crimes, twenty-four hours. Each slice of the polar chart below represents one hour,
+      and each crime is normalized to its own peak so the shapes are comparable regardless of volume.
       Most patterns are easy to explain. One is not.
     </p>
   </div>
@@ -244,6 +244,14 @@
       of patrol density. A stolen car gets reported by its owner. No officer needs to be present
       to make it into the data.
     </p>
+    <p>
+      The Tenderloin's position at the top of this map is not accidental. In January 2022,
+      San Francisco Mayor London Breed declared a state of emergency specifically in the
+      Tenderloin to intensify drug enforcement, deploying additional officers and resources
+      to the neighborhood. That kind of targeted enforcement does not just change what happens
+      on the street. It changes what gets counted. When patrol density goes up, Drug Offense
+      numbers go up with it. The map is measuring enforcement effort as much as criminal activity.
+    </p>
   </div>
 </section>
 
@@ -252,9 +260,9 @@
   <div class="container">
     <h2>The City, Hour by Hour</h2>
     <p class="lead">
-      The animated map below puts both stories on the same screen. Each dot is a real incident,
-      sampled proportionally so that busier hours show more dots. The bar chart on the right
-      gives exact counts per crime type. Use the slider to move through the day, or press Play.
+      Two stories, one map. Each dot is a real incident, sampled proportionally so that busier
+      hours show more dots. The bar chart on the right gives exact counts per crime type.
+      Use the slider to move through the day, or press Play.
       Watch what happens between 04:00 and 13:00.
     </p>
   </div>
@@ -306,10 +314,17 @@
     <a href="https://data.sfgov.org" target="_blank">SF Open Data</a>, merged across the
     2003–2017 and 2018–2025 reporting systems. All times are local San Francisco time.
     <br>
-    <strong>Reference:</strong> Richardson, R., Schultz, J., &amp; Crawford, K. (2019).
+    <strong>References:</strong><br>
+    Richardson, R., Schultz, J., &amp; Crawford, K. (2019).
     Dirty Data, Bad Predictions: How Civil Rights Violations Impact Police Data,
     Predictive Policing Systems, and Justice.
-    <em>New York University Law Review Online</em>, 94, 192–233.
+    <em>New York University Law Review Online</em>, 94, 192–233.<br>
+    City and County of San Francisco (2022).
+    <a href="https://www.sf.gov/news/mayor-london-breed-declares-state-emergency-tenderloin" target="_blank" style="color: var(--accent);">Mayor London Breed Declares State of Emergency in the Tenderloin</a>.
+    Office of the Mayor, January 2022.<br>
+    Wikipedia contributors (2025).
+    <a href="https://en.wikipedia.org/wiki/Tenderloin,_San_Francisco" target="_blank" style="color: var(--accent);">Tenderloin, San Francisco</a>.
+    <em>Wikipedia</em>.
   </p>
 </section>
 
