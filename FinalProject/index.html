@@ -172,8 +172,8 @@
     of every day in 2025, colored by how far it deviated from the expected baseline.
   </p>
   <p>
-    The data is the full Citi Bike trip record for 2025: 45 million rides, 2,344 stations, every
-    trip logged to the minute. No sampling. The city, unfiltered.
+    The data covers the full year of 2025: 12 million trips across 2,344 stations, one
+    representative CSV file per month, every trip logged to the minute.
   </p>
 </section>
 
@@ -206,7 +206,6 @@
       The pattern is not a clean reversal: it is more like a pulse. The same corridors that fill
       with inbound trips at <strong>8am</strong> stay busy at <strong>6pm</strong>, just with
       more mixing. Riders who commuted in from one direction do not all go back the same way.
-      The city breathes, but unevenly.
     </p>
     <p>
       At <strong>2am</strong> almost nothing moves. A handful of lines remain, and the bright
@@ -222,8 +221,9 @@
     <h2>The City Organizes Itself</h2>
     <p class="lead">
       If you look at which stations exchange the most trips with each other, clusters emerge.
-      Each color below is a community of stations that ride together more than they ride anywhere else.
-      They do not follow the borough map.
+      Each color below is a community detected by a network algorithm that groups stations by how
+      frequently riders travel between them — no geography involved, just trip volume.
+      The clusters do not follow the borough map.
     </p>
   </div>
   <div class="viz-wrap">
@@ -231,7 +231,8 @@
     <p class="caption">
       Station communities detected using the Louvain algorithm on the full 2025 trip graph.
       Edges were weighted by total trip volume; only station pairs with at least 50 shared trips
-      were included. Top 8 communities shown. Hover over a station to see its name.
+      were included — a threshold that removes noise from occasional one-off trips while preserving
+      the structural corridors. Top 8 communities shown. Hover over a station to see its name.
     </p>
   </div>
   <div class="prose" style="padding-top: 32px; padding-bottom: 0;">
@@ -250,9 +251,8 @@
       neighbors.
     </p>
     <p>
-      These functional neighborhoods show how New Yorkers actually experience the city,
-      not how the city is officially divided. If you live in DUMBO and work in the Financial
-      District, you are, in any meaningful sense, part of the same neighborhood.
+      These functional neighborhoods are defined entirely by movement, not by history or
+      administrative boundaries.
     </p>
   </div>
 </section>
@@ -302,7 +302,7 @@
 <!-- Conclusion -->
 <section class="prose" style="border-top: 1px solid var(--border);">
   <p>
-    45 million trips is an enormous number, but what makes Citi Bike data valuable is not
+    12 million trips is a substantial sample, but what makes Citi Bike data valuable is not
     its size. It is its granularity: every trip has an origin, a destination, a timestamp,
     and a rider type. That is enough to reconstruct the city's movement almost completely,
     at least for the fraction of New Yorkers who ride.
@@ -327,8 +327,8 @@
 <section class="prose" style="border-top: 1px solid var(--border);">
   <h2 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #f0f0f0; margin-bottom: 16px;">Contributions</h2>
   <p>
-    <!-- Fill in group contributions here -->
-    [Group member contributions]
+    This was a solo project. Data pipeline, network analysis, anomaly detection,
+    visualizations, and website narrative were all completed by Marcus Lilleør Christoffersen.
   </p>
 </section>
 
