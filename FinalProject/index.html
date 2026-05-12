@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NYC Heartbeat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0f1117;
+      --surface:  #1a1a2e;
+      --border:   #2a2a4a;
+      --text:     #d4d4d4;
+      --muted:    #888888;
+      --accent:   #4ea8de;
+      --max-w:    860px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 80px 24px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero .kicker {
+      font-family: 'Source Serif 4', serif;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      color: #f0f0f0;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero .dek {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+    .hero .byline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Body */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .prose {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    .prose p { margin-bottom: 1.3em; }
+    .prose p:last-child { margin-bottom: 0; }
+
+    /* Section headers */
+    .viz-section {
+      padding: 56px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .viz-section .section-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .viz-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: #f0f0f0;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .viz-section .lead {
+      max-width: var(--max-w);
+      margin: 0 auto 36px;
+      color: var(--text);
+    }
+
+    /* Viz containers */
+    .viz-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .viz-wrap img {
+      width: 100%;
+      max-width: 680px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 6px;
+    }
+    .viz-wrap iframe {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      display: block;
+    }
+    .caption {
+      max-width: var(--max-w);
+      margin: 18px auto 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    blockquote {
+      border-left: 3px solid var(--accent);
+      margin: 36px 0;
+      padding: 12px 0 12px 24px;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #b0b0b0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<header class="hero">
+  <p class="kicker">Data Story &nbsp;·&nbsp; Citi Bike NYC 2025</p>
+  <h1>NYC Heartbeat</h1>
+  <p class="dek">45 million bike trips. One year. What does the pulse of a city actually look like, and what disrupts it?</p>
+  <p class="byline">DTU 02806 Social Data Analysis &amp; Visualization &nbsp;·&nbsp; Final Project</p>
+</header>
+
+<!-- Intro -->
+<section class="prose">
+  <p>
+    Every day, tens of thousands of New Yorkers unlock a Citi Bike and ride somewhere. Taken together,
+    these trips form a kind of circulatory system for the city: predictable, rhythmic, and surprisingly
+    legible. The morning rush pulls riders toward Midtown. The evening reverses the flow. Weekends
+    slow everything down and redistribute it toward parks and waterfronts.
+  </p>
+  <p>
+    This story follows that rhythm through three lenses. First, how the city moves: a flow network
+    that shows the busiest routes hour by hour. Second, how the city organizes itself: communities
+    of stations that exchange trips so frequently they form functional neighborhoods, often crossing
+    the official borough boundaries entirely. Third, when the city breaks its pattern: a calendar
+    of every day in 2025, colored by how far it deviated from the expected baseline.
+  </p>
+  <p>
+    The data is the full Citi Bike trip record for 2025: 45 million rides, 2,344 stations, every
+    trip logged to the minute. No sampling. The city, unfiltered.
+  </p>
+</section>
+
+<!-- Act 1: Flow Network -->
+<section class="viz-section">
+  <div class="container">
+    <p class="section-label">Act I</p>
+    <h2>The City Breathes</h2>
+    <p class="lead">
+      Each line below connects two stations. The thickness of the line reflects how many trips
+      traveled that route during the selected hour. Use the slider to move through the day and
+      watch the city inhale toward Midtown at 8am, then exhale back into the neighborhoods at 6pm.
+    </p>
+  </div>
+  <div class="viz-wrap">
+    <iframe src="viz1_flow.html" height="680" scrolling="no"></iframe>
+    <p class="caption">
+      Top 100 station-to-station flows by hour, weekdays only. Line thickness scales with trip volume.
+      Station dots are sized by total departures in the selected hour. Data: Citi Bike NYC 2025.
+    </p>
+  </div>
+  <div class="prose" style="padding-top: 32px; padding-bottom: 0;">
+    <p>
+      At <strong>8am</strong> the pattern is unmistakable: thick lines converge on Midtown and
+      the Financial District from every direction. These are the commuters, annual members riding
+      the same routes every weekday. The biggest single flows run between stations just blocks
+      apart, which sounds counterintuitive until you realize docking availability forces riders
+      to lock up one block early and walk the rest.
+    </p>
+    <p>
+      By <strong>6pm</strong> the map has flipped. The same corridors run in reverse, but they
+      fan out more widely. Not everyone goes home the same way they came. The city exhales
+      unevenly, spreading back into Brooklyn, the Upper West Side, and Hell's Kitchen. The total
+      volume of flow lines is visibly thicker at 6pm than at 8am: the evening rush is longer and
+      more diffuse than the morning one.
+    </p>
+    <p>
+      At <strong>2am</strong> almost nothing moves. A handful of lines remain, concentrated
+      around the nightlife clusters near the West Village and Williamsburg waterfront. The city
+      does not stop, but it gets very quiet: the top route logs around 40 trips for the entire
+      hour, compared to nearly 600 at the 5pm peak.
+    </p>
+  </div>
+</section>
+
+<!-- Act 2: Community Map -->
+<section class="viz-section">
+  <div class="container">
+    <p class="section-label">Act II</p>
+    <h2>The City Organizes Itself</h2>
+    <p class="lead">
+      If you look at which stations exchange the most trips with each other, clusters emerge.
+      Each color below is a community of stations that ride together more than they ride anywhere else.
+      They do not follow the borough map.
+    </p>
+  </div>
+  <div class="viz-wrap">
+    <iframe src="viz2_community.html" height="620" scrolling="no"></iframe>
+    <p class="caption">
+      Station communities detected using the Louvain algorithm on the full 2025 trip graph.
+      Edges were weighted by total trip volume; only station pairs with at least 50 shared trips
+      were included. Top 8 communities shown. Hover over a station to see its name.
+    </p>
+  </div>
+  <div class="prose" style="padding-top: 32px; padding-bottom: 0;">
+    <p>
+      The official map of New York draws hard lines between Manhattan, Brooklyn, Queens, and the Bronx.
+      The bike data does not respect those lines. Stations in DUMBO and around the Brooklyn Bridge
+      belong to the same community as stations in the Financial District: their riders cross
+      the East River every day. The river is not a barrier. It is a commute corridor.
+    </p>
+    <p>
+      The algorithm found 14 communities in total. The top 8 each have a clear geographic
+      identity: Upper Manhattan, Midtown, Chelsea and the West Village, the Financial District,
+      the Lower East Side, Long Island City in Queens, central Brooklyn, and a southern Brooklyn
+      cluster. But the boundaries are drawn by trip volume, not by zip code. A station on the
+      wrong side of a park or a bridge ends up in a different community than its geographical
+      neighbors.
+    </p>
+    <p>
+      These functional neighborhoods show how New Yorkers actually experience the city,
+      not how the city is officially divided. If you live in DUMBO and work in the Financial
+      District, you are, in any meaningful sense, part of the same neighborhood.
+    </p>
+  </div>
+</section>
+
+<!-- Act 3: Calendar Heatmap -->
+<section class="viz-section">
+  <div class="container">
+    <p class="section-label">Act III</p>
+    <h2>When the City Breaks Its Pattern</h2>
+    <p class="lead">
+      Every square below is one day in 2025. Green means more trips than expected for that
+      weekday. Red means fewer. The expected value is the rolling average of the same weekday
+      over the previous four weeks. Hover over any square to see the date and deviation.
+    </p>
+  </div>
+  <div class="viz-wrap">
+    <iframe src="viz3_calendar.html" height="420" scrolling="no"></iframe>
+    <p class="caption">
+      Daily trip counts normalized against a rolling 4-week same-weekday baseline.
+      Color encodes deviation in standard deviations. Data: Citi Bike NYC 2025.
+    </p>
+  </div>
+  <div class="prose" style="padding-top: 32px; padding-bottom: 0;">
+    <p>
+      The red squares are the city's memory. The single worst day in 2025 was October 13,
+      nearly three standard deviations below baseline. Late October has a cluster of red days
+      that almost certainly corresponds to a storm system. November 28 is Thanksgiving.
+      February has scattered red weeks where winter weather kept riders indoors.
+      The data does not know why ridership dropped on any of these days. It just records
+      the drop, and lets you fill in the reason.
+    </p>
+    <p>
+      The green squares tell the other half of the story. Summer months are consistently
+      above baseline, with the warmest stretch of the year generating the densest cluster
+      of green. May has a bright green run that suggests a spell of unusually good spring
+      weather. The algorithm compares each day against the same weekday four weeks prior,
+      so seasonal drift is removed: green means more trips than you would expect for that
+      specific day of the week at that point in the year.
+    </p>
+    <p>
+      The flow network shows the city's normal rhythm. The calendar shows every time that
+      rhythm was disrupted. The city has a heartbeat. This is what it looks like when it skips.
+    </p>
+  </div>
+</section>
+
+<!-- Conclusion -->
+<section class="prose" style="border-top: 1px solid var(--border);">
+  <p>
+    45 million trips is an enormous number, but what makes Citi Bike data valuable is not
+    its size. It is its granularity: every trip has an origin, a destination, a timestamp,
+    and a rider type. That is enough to reconstruct the city's movement almost completely,
+    at least for the fraction of New Yorkers who ride.
+  </p>
+  <p>
+    What this analysis cannot show is why people ride. It cannot distinguish a commuter
+    who has no other option from someone who chose the bike because the weather was good.
+    It cannot see the trips that did not happen: the person who wanted to ride but found
+    no bikes available, or gave up because the route felt unsafe.
+  </p>
+  <p>
+    The data remembers everything it was told. The rest of the city is somewhere in the gaps.
+  </p>
+  <p style="font-size: 0.9rem; color: var(--muted);">
+    Full methodology and code: <a href="Explainer.ipynb" target="_blank">Explainer Notebook</a>
+    &nbsp;·&nbsp;
+    Data: <a href="https://citibikenyc.com/system-data" target="_blank">Citi Bike System Data</a>
+  </p>
+</section>
+
+<!-- Contributions -->
+<section class="prose" style="border-top: 1px solid var(--border);">
+  <h2 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #f0f0f0; margin-bottom: 16px;">Contributions</h2>
+  <p>
+    <!-- Fill in group contributions here -->
+    [Group member contributions]
+  </p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>
+    Data: <a href="https://citibikenyc.com/system-data" target="_blank">Citi Bike NYC System Data</a>
+    &nbsp;·&nbsp; DTU 02806 Social Data Analysis &amp; Visualization &nbsp;·&nbsp; 2026
+  </p>
+</footer>
+
+</body>
+</html>
